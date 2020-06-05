@@ -71,7 +71,7 @@
   ],
   "queues": [
     {
-      "name": "transcoder.queue",
+      "name": "videoreceived.queue",
       "vhost": "video.transcode.vhost",
       "durable": true,
       "auto_delete": false,
@@ -82,7 +82,7 @@
   ],
   "exchanges": [
     {
-      "name": "video.transcode.exchange",
+      "name": "videoreceived.exchange",
       "vhost": "video.transcode.vhost",
       "type": "fanout",
       "durable": true,
@@ -94,9 +94,9 @@
   ],
   "bindings": [
     {
-      "source": "video.transcode.exchange",
+      "source": "videoreceived.exchange",
       "vhost": "video.transcode.vhost",
-      "destination": "transcoder.queue",
+      "destination": "videoreceived.queue",
       "destination_type": "queue",
       "routing_key": "",
       "arguments": {
